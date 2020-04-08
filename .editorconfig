@@ -1,10 +1,21 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# editorconfig.org
+
 root = true
 
-[*.rb]
-max_line_length = 100|off
-end_of_line = lf|crlf|cr
-indent_style = space|tab
-charset = utf-8|latin1|utf-16be|utf-16le
-trim_trailing_whitespace = true|false
-insert_final_newline = true|false
+
+[*]
+
+# Change these settings to your own preference
+indent_style = space
 indent_size = 2
+
+# We recommend you to keep these unchanged
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
