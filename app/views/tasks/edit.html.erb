@@ -1,8 +1,5 @@
 <h2>Edit task</h2>
 
-<%= simple_form_for @task do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit, class: 'btn-primary' %>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'All tasks', tasks_path %>

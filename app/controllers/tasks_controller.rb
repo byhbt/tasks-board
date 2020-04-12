@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasks = Task.all
@@ -18,13 +19,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    @task = Task.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @task = Task.find(params[:id])
-  end
+  def edit; end
 
   def update
     @task = Task.find(params[:id])
@@ -36,7 +33,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task.destroy
+    flash[:notice] = "Task is deleted successfully!"
+
+    redirect_to tasks_path
+  end
+
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def tasks_params
     params.require(:task).permit(:content)
