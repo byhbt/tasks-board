@@ -60,3 +60,5 @@ gem "sprockets-rails", "~> 3.2"
 gem "font-awesome-rails", "~> 4.7"
 
 gem "simple_form", "~> 5.0"
+
+gem "activeadmin", "~> 2.7"
