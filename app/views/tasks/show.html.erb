@@ -1,3 +1,6 @@
 <h2>View</h2>
 
- <%= @task.content %>
+<%= @task.content %>
+
+<%= link_to 'All task', tasks_path %>
+<%= link_to 'Edit', edit_task_path(@task) %>
