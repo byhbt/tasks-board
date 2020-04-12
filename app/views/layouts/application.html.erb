@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="<%= @page.language_code %>">
+<html>
   <head>
-    <%= render "alchemy/pages/meta_data" %>
+    <title>RailsKanban</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,36 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= render "alchemy/edit_mode" %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="<%= root_path %>"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, { class: 'nav-link' } %>
+            </li>
+          <% end if %>
+            <li class="nav-item">
+              <%= link_to 'About', about_path, { class: 'nav-link' } %>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
