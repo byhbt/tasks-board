@@ -2,8 +2,12 @@
   <div class="container">
     <h1 class="display-4">Taskr</h1>
     <p class="lead">Regain clarity and calmness by getting all those tasks out of your head and onto your to-do list (no matter where you are or what device you use).</p>
-    <p><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg' %></p>
+    <p>
+      <% if user_signed_in? %>
+        <%= link_to 'Guide', guide_path, class: 'btn btn-primary btn-lg' %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      <% end %>
+    </p>
   </div>
 </div>
-
-
