@@ -1,9 +1,40 @@
-<h2>All Tasks</h2>
+<h2>Todo</h2>
 
 <ul>
-<% @tasks.each do |task| %>
+<% @todo.each do |task| %>
   <li>
     <%= task.content %>
+    <%= task.state %>
+    <%= link_to 'Show', task_path(task) %>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+  </li>
+<% end %>
+</ul>
+
+
+<h2>Doing</h2>
+
+<ul>
+<% @doing.each do |task| %>
+  <li>
+    <%= task.content %>
+    <%= task.state %>
+    <%= link_to 'Show', task_path(task) %>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+  </li>
+<% end %>
+</ul>
+
+
+<h2>Done</h2>
+
+<ul>
+<% @done.each do |task| %>
+  <li>
+    <%= task.content %>
+    <%= task.state %>
     <%= link_to 'Show', task_path(task) %>
     <%= link_to 'Edit', edit_task_path(task) %>
     <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
