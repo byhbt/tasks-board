@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource, only: [:show, :edit, :update, :destroy, :change]
   before_action :authenticate_user!
 
   def index
@@ -43,14 +43,20 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def change
+    @task.update_attributes(state: params[:state])
+    flash[:notice] = "Task is changed successfully."
+    redirect_to tasks_path
+  end
+
   private
 
-  def set_task
+  def set_resource
     @task = Task.find(params[:id])
   end
 
   def tasks_params
-    allow_params = %i(content state)
+    allow_params = %i[content state]
     params.require(:task).permit(allow_params)
   end
 end

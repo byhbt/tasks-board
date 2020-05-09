@@ -8,6 +8,7 @@
     <%= link_to 'Show', task_path(task) %>
     <%= link_to 'Edit', edit_task_path(task) %>
     <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to 'Move to Doing', change_task_path(task, state: "doing"), method: :put %>
   </li>
 <% end %>
 </ul>
@@ -23,6 +24,8 @@
     <%= link_to 'Show', task_path(task) %>
     <%= link_to 'Edit', edit_task_path(task) %>
     <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to 'Move back to Todo', change_task_path(task, state: "to_do"), method: :put %>
+    <%= link_to 'Move to Done', change_task_path(task, state: "done"), method: :put %>
   </li>
 <% end %>
 </ul>
@@ -38,6 +41,7 @@
     <%= link_to 'Show', task_path(task) %>
     <%= link_to 'Edit', edit_task_path(task) %>
     <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to 'Move back to doing', change_task_path(task, state: "doing"), method: :put %>
   </li>
 <% end %>
 </ul>

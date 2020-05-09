@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
-  resources :tasks
+  resources :tasks do
+    member do
+      put :change
+    end
+  end
   root to: 'pages#home'
 
   get 'about', to: 'pages#about'
