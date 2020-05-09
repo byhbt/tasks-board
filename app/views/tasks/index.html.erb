@@ -1,47 +1,21 @@
-<h2>Todo</h2>
+<div class="row">
+  <div class="col-md-4 tasks-column">
+    <h2>Todo</h2>
+    <%= render @todo %>
+  </div>
 
-<ul>
-<% @todo.each do |task| %>
-  <li>
-    <%= task.content %>
-    <%= task.state %>
-    <%= link_to 'Show', task_path(task) %>
-    <%= link_to 'Edit', edit_task_path(task) %>
-    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
-    <%= link_to 'Move to Doing', change_task_path(task, state: "doing"), method: :put %>
-  </li>
-<% end %>
-</ul>
+  <div class="col-md-4 tasks-column">
+    <h2>Doing</h2>
+    <%= render @doing %>
+  </div>
 
-
-<h2>Doing</h2>
-
-<ul>
-<% @doing.each do |task| %>
-  <li>
-    <%= task.content %>
-    <%= task.state %>
-    <%= link_to 'Show', task_path(task) %>
-    <%= link_to 'Edit', edit_task_path(task) %>
-    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
-    <%= link_to 'Move back to Todo', change_task_path(task, state: "to_do"), method: :put %>
-    <%= link_to 'Move to Done', change_task_path(task, state: "done"), method: :put %>
-  </li>
-<% end %>
-</ul>
+  <div class="col-md-4 tasks-column">
+    <h2>Done</h2>
+    <%= render @done %>
+  </div>
+</div>
 
 
-<h2>Done</h2>
 
-<ul>
-<% @done.each do |task| %>
-  <li>
-    <%= task.content %>
-    <%= task.state %>
-    <%= link_to 'Show', task_path(task) %>
-    <%= link_to 'Edit', edit_task_path(task) %>
-    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
-    <%= link_to 'Move back to doing', change_task_path(task, state: "doing"), method: :put %>
-  </li>
-<% end %>
-</ul>
+
+

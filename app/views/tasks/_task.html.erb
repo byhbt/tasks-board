@@ -1,0 +1,21 @@
+<div class="card card-task">
+  <div class="card-body">
+    <p class="card-text"><%= task.content %></p>
+    <%= task.state %>
+
+    <%= link_to 'Show', task_path(task) %>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= task.created_at %>
+  </div>
+  <div class="card-footer text-muted d-flex justify-content-between">
+    <% if task.state == 'to_do' %>
+      <%= link_to icon('fa', 'arrow-right'), change_task_path(task, state: 'doing'), method: :put %>
+    <% elsif task.state == 'doing' %>
+      <%= link_to icon('fa', 'arrow-left'), change_task_path(task, state: 'to_do'), method: :put %>
+      <%= link_to icon('fa', 'arrow-right'), change_task_path(task, state: 'done'), method: :put %>
+    <% else %>
+      <%= link_to icon('fa', 'arrow-left'), change_task_path(task, state: 'doing'), method: :put %>
+    <% end %>
+  </div>
+</div>
