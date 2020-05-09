@@ -4,4 +4,6 @@ class PagesController < ApplicationController
   def about; end
 
   def guide; end
+
+  def test; end
 end

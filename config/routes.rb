@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
   get 'guide', to: 'pages#guide'
+  get 'test', to: 'pages#test'
 end
