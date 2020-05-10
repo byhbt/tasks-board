@@ -1,6 +1,7 @@
 # Tasks board
 
-Three list of tasks
+The main purpose of this project is about learning Ruby on Rails.
+The features is inspired by the Github Project feature.
 
 ![rails-kanban-demo](https://user-images.githubusercontent.com/948856/81474279-7bb79080-922e-11ea-8d8c-73816df326c6.png)
 
