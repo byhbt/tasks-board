@@ -63,3 +63,4 @@ gem "font-awesome-rails", "~> 4.7"
 gem "simple_form", "~> 5.0"
 
 gem "activeadmin", "~> 2.7"
+gem "auto_html"
